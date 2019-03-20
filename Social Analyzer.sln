@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Social Analyzer", "Social Analyzer\Social Analyzer.pyproj", "{34E5D99C-A7F4-4154-AE28-82BFD6C6566E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E5D99C-A7F4-4154-AE28-82BFD6C6566E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E5D99C-A7F4-4154-AE28-82BFD6C6566E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD4D299E-4DEF-4E6B-8EB3-08A515075571}
+	EndGlobalSection
+EndGlobal
