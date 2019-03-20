@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>34e5d99c-a7f4-4154-ae28-82bfd6c6566e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Social_Analyzer.py</StartupFile>
+    <StartupFile>social_analyzer.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,10 +21,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Social_Analyzer.py" />
+    <Compile Include="config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\api.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\configuration.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="social_analyzer.py" />
+    <Compile Include="src\helpers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\visualisation.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
