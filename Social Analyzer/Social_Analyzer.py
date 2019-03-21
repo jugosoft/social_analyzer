@@ -1,14 +1,25 @@
 import src.api              as api
 import src.visualisation    as gr
+import json
 
 vk = api.ApiVK()
 
-src_id = 367454545
-users = vk.get_users(src_id)
+src_id = 
+users = vk.get_friends(src_id)
 
-graphics = gr.Graphics()
+counter = 0 
+for x in users:
+    user = vk.get_user_info(users[counter])
 
-for dst_id in users:
-    graphics.add_edge(src_id, dst_id)
+    #user[0] is a dictionary!
+    if user[0].get('city') != None and user[0].get('city') != '':
+        print(user[0].get('city').get('title'))
+    
+    counter += 1
 
-graphics.draw()
+#graphics = gr.Graphics()
+
+#for dst_id in users:
+#    graphics.add_edge(src_id, dst_id)
+
+#graphics.draw()
