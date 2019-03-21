@@ -1,25 +1,27 @@
 import src.api              as api
 import src.visualisation    as gr
+import src.helpers          as help
 import json
 
 vk = api.ApiVK()
 
-src_id = 
-users = vk.get_friends(src_id)
+src_id = 0
 
-counter = 0 
-for x in users:
-    user = vk.get_user_info(users[counter])
+graphics = gr.Graphics()
 
-    #user[0] is a dictionary!
-    if user[0].get('city') != None and user[0].get('city') != '':
-        print(user[0].get('city').get('title'))
-    
-    counter += 1
+graph = {}
+friend_ids = vk.get_friends(src_id)  # ваш user id, для которого вы хотите построить граф друзей.
+print(friend_ids)
 
-#graphics = gr.Graphics()
+for friend_id in friend_ids:
+    print('grabbing id' + str(friend_id))
+    help.delay()
+    graph[friend_id] = vk.get_friends(friend_id)
 
-#for dst_id in users:
-#    graphics.add_edge(src_id, dst_id)
+for i in graph:
+    graphics.add_node(i)
+    for j in graph[i]:
+        if i != j and i in friend_ids and j in friend_ids:
+            graphics.add_edge(i, j)
 
-#graphics.draw()
+graphics.draw()

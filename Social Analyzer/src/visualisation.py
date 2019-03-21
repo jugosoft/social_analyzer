@@ -27,6 +27,12 @@ class Graphics:
         """
         self.G.add_edges_from([(src, dst)])
 
+    def add_node(self, node):
+        """
+        Adds node
+        """
+        self.G.add_node(node)
+
     def draw(self):
         val_map = {'A': 1.0,
                    'D': 0.5714285714285714,
@@ -40,8 +46,8 @@ class Graphics:
         # separate calls to draw nodes and edges
         pos = nx.spring_layout(self.G)
         nx.draw_networkx_nodes(self.G, pos, cmap=plt.get_cmap('jet'), 
-                               node_color = self.colour.YELLOW.value, node_size = 500)
-        nx.draw_networkx_labels(self.G, pos)
-        nx.draw_networkx_edges(self.G, pos, edgelist=edges, edge_color=self.colour.RED.value, arrows=True)
+                               node_color = self.colour.YELLOW.value, node_size = 15)
+        #nx.draw_networkx_labels(self.G, pos)
+        nx.draw_networkx_edges(self.G, pos, edgelist=edges, edge_color=self.colour.BLUE.value, arrows=False)
 
         plt.show()

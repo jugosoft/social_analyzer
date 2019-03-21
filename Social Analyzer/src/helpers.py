@@ -7,7 +7,7 @@ def delay():
     Creates delay. We need it because of restrictions of Vk API.
     No more than 5 requests per second...
     """
-    latency = 0.33
+    latency = 0.44
     sleep(latency)
 
 class Colour(Enum):
