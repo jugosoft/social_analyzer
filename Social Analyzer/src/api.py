@@ -41,19 +41,24 @@ class ApiVK:
         For more information look through 'fields', such
         as nickname, sex etc.
         """
-        
-
         return self.api.users.get(user_id=user_id, fields='nickname, deativated, screen_name, is_closed, sex, bdate (birthdate), city, country, timezone, photo, photo_medium, photo_big, has_mobile, contacts, education, online, counters, relation, last_seen, activity, can_write_private_message, can_see_all_posts, can_post, universities')
 
-    def map_id_into_cities(*args):
+    def map_ids_into_real_city(self, *args):
         """
         This method maps list of id's into city's list.
         It may be useful for detecting current location of person.
         """
+        def most_common(lst):
+            """
+            Looks for the most common city of friends
+            """
+            return max(lst, key=lst.count)
+
         list_of_cities = []
         counter = 0 
-        for x in users:
-            user = vk.get_user_info(users[counter])
+        for x in args[0]:
+            help.delay()
+            user = self.get_user_info(args[0][counter])
 
             #user[0] is a dictionary!
             #but user is a list...
@@ -61,7 +66,10 @@ class ApiVK:
                 list_of_cities.append(user[0].get('city').get('title'))    
             counter += 1
 
-        return list_of_cities
+        #list of cities. the most common citi is a real 
+        #location of the person.
+        comm_city =  most_common(list_of_cities)
+        return comm_city
 
     def nothing():
         pass

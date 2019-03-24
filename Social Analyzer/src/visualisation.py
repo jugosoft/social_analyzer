@@ -12,42 +12,39 @@ class Graphics:
    Attributes:
        No any attributes yet.
     """
-    G = None
-    colour = None 
-
     def __init__(self):
         """Construstor."""
         self.G = nx.DiGraph()
         self.colour = help.Colour
+        self.node_colours = list()
+        self.edge_colours = list()
 
-    def add_edge(self, src, dst):
+    def add_edge(self, src, dst, colour='y'):
         """
         Adds edge between existing nodes 
         or creates new one. It's not necessary.
         """
         self.G.add_edges_from([(src, dst)])
+        self.edge_colours.append(colour)
 
-    def add_node(self, node):
+    def add_node(self, node, colour):
         """
         Adds node
         """
         self.G.add_node(node)
+        self.node_colours.append(colour)
 
     def draw(self):
-        val_map = {'A': 1.0,
-                   'D': 0.5714285714285714,
-                   'H': 0.0}
-
-        # Specify the edges you want here
-
+        self.G.name = 'VKAnalyzer'
         edges = [edge for edge in self.G.edges()]
-
         # Need to create a layout when doing
         # separate calls to draw nodes and edges
         pos = nx.spring_layout(self.G)
         nx.draw_networkx_nodes(self.G, pos, cmap=plt.get_cmap('jet'), 
-                               node_color = self.colour.YELLOW.value, node_size = 15)
+                               node_color = self.node_colours, node_size = 25)
+
+        #print(self.node_colours)
         #nx.draw_networkx_labels(self.G, pos)
-        nx.draw_networkx_edges(self.G, pos, edgelist=edges, edge_color=self.colour.BLUE.value, arrows=False)
+        nx.draw_networkx_edges(self.G, pos, edgelist=edges, edge_color=self.edge_colours, arrows=False)
 
         plt.show()
